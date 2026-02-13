@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cnce6grt84dvu"]
+
+[ext_resource type="Material" uid="uid://dni4m2is6842l" path="res://assets/resources/cloud_material.tres" id="1_67ctl"]
+[ext_resource type="Texture2D" uid="uid://b8aax4o743fdl" path="res://assets/images/cloud1.png" id="1_p445k"]
+[ext_resource type="Script" uid="uid://cqgs2hwkn81tp" path="res://scripts/clouds.gd" id="2_v7ppl"]
+
+[node name="Clouds" type="Sprite3D" unique_id=1497421953]
+transform = Transform3D(4, 0, 0, 0, -1.7484555e-07, -4, 0, 4, -1.7484555e-07, 0, 0, 0)
+material_override = ExtResource("1_67ctl")
+alpha_cut = 1
+texture = ExtResource("1_p445k")
+script = ExtResource("2_v7ppl")

@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bnu80o88g77x7"]
+
+[ext_resource type="Texture2D" uid="uid://bdg61rl5yg746" path="res://assets/characters/halucygeno0000.png" id="1_5s4d1"]
+[ext_resource type="Texture2D" uid="uid://bl321uah508p8" path="res://assets/characters/halucygeno0001.png" id="2_s2cr8"]
+[ext_resource type="Texture2D" uid="uid://bghrpuc8g7h3g" path="res://assets/characters/halucygeno0002.png" id="3_qk6to"]
+[ext_resource type="Texture2D" uid="uid://pu8bbclqt7ko" path="res://assets/characters/halucygeno0003.png" id="4_axph7"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5s4d1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s2cr8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qk6to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_axph7")
+}],
+"loop": true,
+"name": &"wave",
+"speed": 8.0
+}]

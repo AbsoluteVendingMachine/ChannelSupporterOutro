@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cx4bk8w38dm7e"]
+
+[ext_resource type="SpriteFrames" uid="uid://bnu80o88g77x7" path="res://assets/resources/halucygeno.tres" id="1_rkhd4"]
+[ext_resource type="Script" uid="uid://c6wqb0h0tcm32" path="res://scripts/character.gd" id="2_lrhn5"]
+[ext_resource type="FontFile" uid="uid://ys2kgn3rm8gt" path="res://assets/fonts/Inter-4.1/extras/otf/Inter-SemiBold.otf" id="5_dp8ca"]
+
+[node name="Character" type="AnimatedSprite3D" unique_id=1187198022 node_paths=PackedStringArray("label")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+cast_shadow = 0
+billboard = 2
+alpha_cut = 1
+sprite_frames = ExtResource("1_rkhd4")
+animation = &"idle"
+frame_progress = 0.76232344
+script = ExtResource("2_lrhn5")
+label = NodePath("Label3D")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1335424912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4326348, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 127
+outline_render_priority = 36
+text = "TEST"
+font = ExtResource("5_dp8ca")
+font_size = 72
+outline_size = 16

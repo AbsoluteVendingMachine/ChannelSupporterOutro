@@ -1,0 +1,289 @@
+[gd_scene format=3 uid="uid://h83hf7agd3eg"]
+
+[ext_resource type="Texture2D" uid="uid://vwvocx4v5mqu" path="res://assets/images/grass1.png" id="1_61klm"]
+[ext_resource type="Texture2D" uid="uid://c7nbbsob8ngh0" path="res://assets/images/tree1.png" id="2_iudvb"]
+[ext_resource type="Texture2D" uid="uid://c4jabosp3ox8r" path="res://assets/images/background1-mountain_front.png" id="3_l13eo"]
+[ext_resource type="Texture2D" uid="uid://b04elv4hnndg7" path="res://assets/images/background1-mountain_back.png" id="4_yrxyh"]
+[ext_resource type="PackedScene" uid="uid://cnce6grt84dvu" path="res://scenes/clouds.tscn" id="5_l13eo"]
+[ext_resource type="Script" uid="uid://cqs2aalmilnkw" path="res://scripts/camera_activator.gd" id="6_yrxyh"]
+[ext_resource type="PackedScene" uid="uid://cx4bk8w38dm7e" path="res://scenes/character.tscn" id="7_l7nqg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l13eo"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 1, 0.74509805, 1)
+albedo_texture = ExtResource("1_61klm")
+distance_fade_mode = 1
+distance_fade_min_distance = 20.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_61klm"]
+sky_top_color = Color(0.33562368, 0.7319258, 0.91606253, 1)
+sky_horizon_color = Color(0.38626122, 0.7615706, 0.97785777, 1)
+ground_bottom_color = Color(0.22352941, 0.654902, 0.2784314, 1)
+ground_horizon_color = Color(0.17254902, 0.49019608, 0.20392157, 1)
+
+[sub_resource type="Sky" id="Sky_6vrsj"]
+sky_material = SubResource("ProceduralSkyMaterial_61klm")
+
+[sub_resource type="Environment" id="Environment_f6w1c"]
+background_mode = 2
+sky = SubResource("Sky_6vrsj")
+
+[sub_resource type="Animation" id="Animation_l7nqg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [60.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.404, 0.08872819, 3.8110256)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.40142578, 0.22591543, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yrxyh"]
+resource_name = "default"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [60.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(0.116629206, 9.849147),
+"update": 0,
+"values": [Vector3(-3.404, 0.08872819, 3.8110256), Vector3(-1.5363294, 0.46144766, 2.361413)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(0.28717455, 1),
+"update": 0,
+"values": [Vector3(-0.40142578, 0.22591543, 0), Vector3(-0.40142572, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7nqg"]
+_data = {
+&"RESET": SubResource("Animation_l7nqg"),
+&"default": SubResource("Animation_yrxyh")
+}
+
+[node name="Spring" type="Node3D" unique_id=1498934699]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=482226525]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_l13eo")
+modulate = Color(1, 1, 0.5647059, 1)
+texture = ExtResource("1_61klm")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=97817085]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -0.61335254, 0.06420255, 0)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=1690188398]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.06338167, 0.06420255, 0.35507214)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D6" type="Sprite3D" parent="." unique_id=443905679]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -1.0692952, 0.06420255, 0.35507214)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D7" type="Sprite3D" parent="." unique_id=978403653]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -0.6372422, 0.06420255, 0.6694123)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D8" type="Sprite3D" parent="." unique_id=246393331]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -1.6837872, 0.06420255, 1.0934324)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D9" type="Sprite3D" parent="." unique_id=419828431]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -1.7744564, 0.06420255, 0.1893593)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D10" type="Sprite3D" parent="." unique_id=1129463358]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -2.6666439, 0.06420255, 1.3651346)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D16" type="Sprite3D" parent="." unique_id=187556479]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -2.00409, 0.06420255, 1.017446)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D11" type="Sprite3D" parent="." unique_id=2031500405]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -2.123605, 0.06420255, 2.4194603)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D12" type="Sprite3D" parent="." unique_id=1352532813]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -1.0274007, 0.06420255, 2.229524)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D13" type="Sprite3D" parent="." unique_id=1995890502]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.3359685, 0.06420255, 1.0469599)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D14" type="Sprite3D" parent="." unique_id=782659841]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -3.3369005, 0.06420255, 1.9108222)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D18" type="Sprite3D" parent="." unique_id=1899829284]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -4.323888, 0.06420255, 2.627417)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D19" type="Sprite3D" parent="." unique_id=2065994660]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -3.608713, 0.06420255, 3.2863219)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D23" type="Sprite3D" parent="." unique_id=1288772802]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -4.783661, 0.06420255, 4.287531)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D24" type="Sprite3D" parent="." unique_id=2056445871]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -3.623259, 0.06420255, 5.506787)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D25" type="Sprite3D" parent="." unique_id=637292739]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -3.734316, 0.06420255, 4.339035)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D26" type="Sprite3D" parent="." unique_id=1808679039]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -2.2049391, 0.06420267, 4.2197037)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D27" type="Sprite3D" parent="." unique_id=1257901454]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.16582322, 0.06420267, 3.6610413)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D28" type="Sprite3D" parent="." unique_id=649260091]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 1.8870885, 0.06420267, 1.5855381)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D20" type="Sprite3D" parent="." unique_id=787307568]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -5.094001, 0.06420255, 1.1676655)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D21" type="Sprite3D" parent="." unique_id=745461513]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -2.2881706, 0.06420255, 3.1315904)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D22" type="Sprite3D" parent="." unique_id=602905703]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -1.8595529, 0.06420255, 3.0613945)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D17" type="Sprite3D" parent="." unique_id=1256439290]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -3.4525805, 0.06420255, 1.1365995)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="Sprite3D15" type="Sprite3D" parent="." unique_id=1189165968]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -0.1816585, 0.06420255, 2.4475372)
+billboard = 2
+texture = ExtResource("2_iudvb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=797186129]
+environment = SubResource("Environment_f6w1c")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1194096796]
+transform = Transform3D(39.86, 0, 0, 0, 39.86, 0, 0, 0, 39.86, 11.738644, -35.193085, -40.58145)
+flip_v = true
+alpha_cut = 1
+texture = ExtResource("3_l13eo")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=253484654]
+transform = Transform3D(39.86, 0, 0, 0, 39.86, 0, 0, 0, 39.86, 11.738644, -40.03299, -45.137085)
+alpha_cut = 1
+texture = ExtResource("4_yrxyh")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2002297038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5416179, 0, 1.4781816)
+
+[node name="Clouds" parent="." unique_id=1497421953 instance=ExtResource("5_l13eo")]
+transform = Transform3D(4, 0, 0, 0, -1.7484555e-07, -4, 0, 4, -1.7484555e-07, 0, 2.309164, 0)
+
+[node name="CameraActivator" type="Node" parent="." unique_id=1094323207 node_paths=PackedStringArray("camera", "animation_player")]
+script = ExtResource("6_yrxyh")
+camera = NodePath("Camera3D")
+animation_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://cqs2aalmilnkw"
+
+[node name="Camera3D" type="Camera3D" parent="CameraActivator" unique_id=52400145]
+transform = Transform3D(0.97458947, -0.08752324, 0.20619181, 0, 0.92050475, 0.3907312, -0.22399862, -0.38080248, 0.8971143, -3.404, 0.08872819, 3.8110256)
+fov = 60.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraActivator" unique_id=326399161]
+libraries/ = SubResource("AnimationLibrary_l7nqg")
+
+[node name="Characters" type="Node" parent="." unique_id=1519049253]
+
+[node name="Halucygeno" parent="Characters" unique_id=1187198022 instance=ExtResource("7_l7nqg")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.5463669, 0.124286786, 1.5364065)
+frame_progress = 0.0
+text = "Halucygeno"
