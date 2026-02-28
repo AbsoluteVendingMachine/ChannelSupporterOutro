@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnce6grt84dvu" path="res://scenes/clouds.tscn" id="5_l13eo"]
 [ext_resource type="Script" uid="uid://cqs2aalmilnkw" path="res://scripts/camera_activator.gd" id="6_yrxyh"]
 [ext_resource type="PackedScene" uid="uid://cx4bk8w38dm7e" path="res://scenes/character.tscn" id="7_l7nqg"]
+[ext_resource type="SpriteFrames" uid="uid://cveex0uu0g3l6" path="res://assets/resources/jefftastic.tres" id="8_yqx6w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l13eo"]
 cull_mode = 2
@@ -284,6 +285,12 @@ libraries/ = SubResource("AnimationLibrary_l7nqg")
 [node name="Characters" type="Node" parent="." unique_id=1519049253]
 
 [node name="Halucygeno" parent="Characters" unique_id=1187198022 instance=ExtResource("7_l7nqg")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.5463669, 0.124286786, 1.5364065)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.6635731, 0.124286786, 1.5364065)
 frame_progress = 0.0
 text = "Halucygeno"
+
+[node name="Jefftastic" parent="Characters" unique_id=427365747 instance=ExtResource("7_l7nqg")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.3878561, 0.124286786, 1.5364065)
+sprite_frames = ExtResource("8_yqx6w")
+frame_progress = 0.0
+text = "Jefftastic"
